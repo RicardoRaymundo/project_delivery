@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:use_flutter_project_matrix/app/app_behavior.dart';
 import 'package:use_flutter_project_matrix/app/app_routing.dart';
+import 'package:use_flutter_project_matrix/page/page_request.dart';
 import 'package:use_flutter_project_matrix/page/page_splashscreen.dart';
 import 'package:use_flutter_project_matrix/theme/theme_config.dart';
 import 'package:use_flutter_project_matrix/theme/theme_select.dart';
@@ -45,7 +46,8 @@ class _MainState extends State<Main> {
       },
 
       home: Scaffold(
-        body: PageSplashScreen(),
+        //body: PageSplashScreen(),
+        body: PageRequest(),
       ),
       routes: AppRouting.routes(),
     );
