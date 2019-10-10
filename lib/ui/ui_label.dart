@@ -48,5 +48,16 @@ class UILabel {
   static const String INSTRUCTIONS = 'Instruções';
   static const String CLIENT = 'Cliente';
   static const String ARRIVED = 'Cheguei';
+
+  /// PAGE HISTORIC
+  static const String DELIVERIES = 'Entregas';
+  static const String VALUE = 'Valor';
+  static const String DAY = 'Dia';
+  static const String DELIVERY = 'Entrega';
+
+  /// BOTTOMBAR
+  static const String BOTTOMBAR_HOME = 'INÍCIO';
+  static const String BOTTOMBAR_DELIVERIES = 'ENTREGAS';
+  static const String BOTTOMBAR_PROFILE = 'PERFIL';
 }
 
