@@ -1,34 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:use_flutter_project_matrix/app/app_routing.dart';
-import 'package:use_flutter_project_matrix/page/order/page_order.dart';
 import 'package:use_flutter_project_matrix/page/page_login.dart';
+import 'package:use_flutter_project_matrix/page/page_register_documents.dart';
 import 'package:use_flutter_project_matrix/ui/ui_label.dart';
-import 'package:use_flutter_project_matrix/ui/ui_svg.dart';
 
-class PageRegister extends StatefulWidget {
-  @override
-  _PageRegisterState createState() => _PageRegisterState();
-}
-
-class _PageRegisterState extends State<PageRegister> {
+class PageRegisterVehicle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-        title: Text(UILabel.APPBAR_REGISTER),
+        title: Text('Cadastro de Veículo'),
       ),
       body: Container(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 25.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[this.form(context)],
-            ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 25.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[this.form(context)],
           ),
         ),
+      ),
     );
   }
 
@@ -42,67 +33,54 @@ class _PageRegisterState extends State<PageRegister> {
           Container(
             padding: _edgeInsets,
             child: TextField(
-
               decoration: InputDecoration(
-                hintText: UILabel.TYPE_FULL_NAME,
-                labelText: UILabel.FULL_NAME,
+                hintText: 'Veículo',
+                labelText: 'Veículo',
               ),
             ),
           ),
           Container(
             padding: _edgeInsets,
             child: TextField(
-
               decoration: InputDecoration(
-                hintText: UILabel.TYPE_EMAIL,
-                labelText: UILabel.EMAIL,
+                hintText: 'Modelo',
+                labelText: 'Modelo',
               ),
             ),
           ),
           Container(
             padding: _edgeInsets,
             child: TextField(
-
               decoration: InputDecoration(
-                hintText: UILabel.TYPE_CPF,
-                labelText: UILabel.CPF,
+                hintText: 'Ano',
+                labelText: 'Ano',
               ),
             ),
           ),
           Container(
             padding: _edgeInsets,
             child: TextField(
-
               decoration: InputDecoration(
-                hintText: UILabel.TYPE_CITY,
-                labelText: UILabel.CITY,
+                hintText: 'Placa',
+                labelText: 'Placa',
               ),
             ),
           ),
           Container(
             padding: _edgeInsets,
-            child: TextField(
-
-              decoration: InputDecoration(
-                hintText: UILabel.TYPE_VEHICLE,
-                labelText: UILabel.VEHICLE,
-              ),
+            child: RaisedButton(
+              child: Text('Documento do veículo', style: Theme.of(context).textTheme.button),
+              onPressed: () {},
             ),
           ),
           SizedBox(height: height),
           Container(
             width: double.infinity,
             child: RaisedButton(
-              child: Text(
-                UILabel.NEXT,
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .button,
-              ),
+              child: Text(UILabel.NEXT, style: Theme.of(context).textTheme.button),
               onPressed: () {
                 //Navigator.popAndPushNamed(context, AppRouting.PAGE_MAIN);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => PageLogin()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PageRegisterDocuments()));
               },
             ),
           ),
@@ -110,5 +88,4 @@ class _PageRegisterState extends State<PageRegister> {
       ),
     );
   }
-
 }

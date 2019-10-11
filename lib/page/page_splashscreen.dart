@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:use_flutter_project_matrix/page/page_login.dart';
 import 'package:use_flutter_project_matrix/page/page_main.dart';
+import 'package:use_flutter_project_matrix/page/page_welcome.dart';
 import 'package:use_flutter_project_matrix/ui/ui_image.dart';
 
 import '../data/data.dart';
@@ -43,6 +44,6 @@ class _PageSplashScreenState extends State<PageSplashScreen> {
   /// Método que será chamado após o delay
   /// Verifica o status de login e decide para qual página irá navegar
   void onDoneLoading() async {
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => isLogged ? PageMain() : PageLogin()));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => isLogged ? PageMain() : PageWelcome()));
   }
 }

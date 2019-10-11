@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:use_flutter_project_matrix/app/app_behavior.dart';
 import 'package:use_flutter_project_matrix/app/app_routing.dart';
 import 'package:use_flutter_project_matrix/page/page_historic.dart';
+import 'package:use_flutter_project_matrix/page/page_splashscreen.dart';
 import 'package:use_flutter_project_matrix/theme/theme_config.dart';
 import 'package:use_flutter_project_matrix/theme/theme_select.dart';
 import 'package:use_flutter_project_matrix/ui/ui_label.dart';
@@ -45,8 +46,8 @@ class _MainState extends State<Main> {
       },
 
       home: Scaffold(
-        //body: PageSplashScreen(),
-        body: PageHistoric(),
+        body: PageSplashScreen(),
+        //body: PageHistoric(),
       ),
       routes: AppRouting.routes(),
     );

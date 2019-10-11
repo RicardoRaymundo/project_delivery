@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:use_flutter_project_matrix/page/order/page_order.dart';
 import 'package:use_flutter_project_matrix/ui/ui_label.dart';
 
 class PageRequest extends StatelessWidget {
@@ -80,7 +81,7 @@ class PageRequest extends StatelessWidget {
                   ),
                   onPressed: () {
                     //Navigator.popAndPushNamed(context, AppRouting.PAGE_MAIN);
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) => PageRegister()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => PageOrder()));
                   },
                 ),
               ),
@@ -90,6 +91,7 @@ class PageRequest extends StatelessWidget {
       ),
     );
   }
+
 
   Widget buildStops(List<Map<String, String>> stops) {
     double diameter = 35;

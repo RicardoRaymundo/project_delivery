@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:use_flutter_project_matrix/page/page_request.dart';
 import 'package:use_flutter_project_matrix/ui/ui_label.dart';
 
 /// Página que exibe o histórico de entregas
@@ -26,7 +27,7 @@ class _PageHistoricState extends State<PageHistoric> {
   /// Lista de valores do dropdown
   final List<String> _dropdownValues = ["Janeiro 2020", "Fevereiro 2020", "Março 2020", "Abril 2020", "Maio 2020"];
 
-  int _bottombarTabIndex = 0;
+  int _bottombarTabIndex = 1;
   ///Lista de paginas que a bottombar acessa
   final List<Widget> _children = [];
 
@@ -41,69 +42,49 @@ class _PageHistoricState extends State<PageHistoric> {
         ],
       ),
       body: Center(
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 150,
-              child: Center(child: Text('R\$1.500,00')),
-            ),
-            Container(
-              height: 50,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    height: 2,
-                    color: Colors.white,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: Row(
-                      children: <Widget>[
-                        Text(UILabel.VALUE),
-                        Spacer(),
-                        Text(UILabel.DAY),
-                        Spacer(),
-                        Text(UILabel.DELIVERY),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    height: 2,
-                    color: Colors.white,
-                  ),
-                ],
+        child: Container(
+          height: double.infinity,
+          child: ListView(
+            children: <Widget>[
+              Container(
+                height: 150,
+                child: Center(child: Text('R\$1.500,00')),
               ),
-            ),
-            Container(
-              height: 250,
-              child: ListView.separated(
-                separatorBuilder: (context, index) => Container(
-                  height: 2,
-                  color: Colors.white,
-                ),
-                itemCount: deliveries.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    height: 50,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 30.0, right: 5),
+              Container(
+                height: 50,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      height: 2,
+                      color: Colors.white,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
                       child: Row(
                         children: <Widget>[
-                          Text(deliveries[index]['value']),
+                          Text(UILabel.VALUE),
                           Spacer(),
-                          Text(deliveries[index]['day']),
+                          Text(UILabel.DAY),
                           Spacer(),
-                          Text(deliveries[index]['delivery']),
-                          Icon(Icons.chevron_right)
+                          Text(UILabel.DELIVERY),
                         ],
                       ),
                     ),
-                  );
-                },
+                    Container(
+                      height: 2,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              Container(
+                child: Column(
+                  children: buildRows(deliveries),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -147,11 +128,10 @@ class _PageHistoricState extends State<PageHistoric> {
                   value: value,
                 ))
             .toList(),
-        onChanged: (String value) {
+        onChanged: (value) {
           /// Muda o value do botão
           setState(() {
             _currentlySelected = value;
-            print(value);
             print(value);
           });
         },
@@ -160,5 +140,42 @@ class _PageHistoricState extends State<PageHistoric> {
         value: _currentlySelected ,
       ),
     );
+  }
+
+  /// Cria cada linha da tabela de entregas do histórico
+  List<Widget> buildRows(List<Map<String, String>> listData) {
+    final List<Widget> children = [];
+    listData.forEach((item) {
+      children.add(
+        Container(
+          height: 2,
+          color: Colors.white,
+        ),
+      );
+      children.add(
+        GestureDetector(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => PageRequest()));
+          },
+          child: Container(
+            height: 50,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30.0, right: 5),
+              child: Row(
+                children: <Widget>[
+                  Text(item['value']),
+                  Spacer(),
+                  Text(item['day']),
+                  Spacer(),
+                  Text(item['delivery']),
+                  Icon(Icons.chevron_right)
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    });
+    return children;
   }
 }

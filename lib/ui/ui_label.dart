@@ -8,12 +8,21 @@ class UILabel {
   static const String WATCH = 'Assistir';
   static const String INFO = 'Info';
 
+  /// APPBAR
+  static const String APPBAR_REGISTER = 'Cadastro';
+
+  /// PAGE WELCOME
+  static const String ENTER = 'Entrar';
+  static const String REGISTER = 'Cadastrar';
+
   /// PAGE LOGIN
-  static const String LOGIN_APPBAR = 'Login';
+  static const String LOGIN = 'Login';
   static const String CELL = 'Celular';
+  static const String TOKEN = 'Token';
   static const String CELL_NUMBER = 'Número de Celular';
   static const String NEXT = 'Próximo';
   static const String TYPE_CELL_NUMBER = 'Digite seu número de celular';
+  static const String ENTER_THE_TOKEN_RECEIVED = 'Digite o token recebido';
   static const String USER_NAME = 'Nome de usuário';
   static const String LOGIN_TO_CONTINUE = 'Faça login para continuar';
   static const String WELCOME = 'Seja bem-vindo!';
@@ -23,10 +32,8 @@ class UILabel {
   static const String OF = 'de';
   static const String TYPE_PASSWORD = 'aaaaaaaaaa';
   static const String PASSWORD = 'assssss';
-  static const String ENTER = 'ffffffff';
 
 /// PAGE REGISTER
-  static const String REGISTER_APPBAR = 'Cadastro';
   static const String FULL_NAME = 'Nome Completo';
   static const String TYPE_FULL_NAME = 'Digite seu nome completo';
   static const String EMAIL = 'E-mail';
@@ -55,6 +62,7 @@ class UILabel {
   static const String DAY = 'Dia';
   static const String DELIVERY = 'Entrega';
 
+  // TODO:: Nao devem ser subtipos, configurar como caixa baixa
   /// BOTTOMBAR
   static const String BOTTOMBAR_HOME = 'INÍCIO';
   static const String BOTTOMBAR_DELIVERIES = 'ENTREGAS';

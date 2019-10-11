@@ -50,7 +50,7 @@ class PageOrderPointOne extends StatelessWidget {
             onChanged: (result) {
               /// TODO :: Implementar lógica do swipe
               if (result == SwipePosition.SwipeRight) {
-                //Navigator.pushNamed(context, AppRouting.PAGE_MAIN);
+                //Navigator.push(context, MaterialPageRoute(builder: (context) => PageHistoric()));
               } else {}
             },
           ),
